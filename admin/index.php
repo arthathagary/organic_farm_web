@@ -19,32 +19,7 @@
     <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
-    <!-- <main class="admin-dash">
-    <div class="sideNav">
-    <a href="index.php?add_category">Add Category<a/>
-    <a href="index.php?add_product">Add Product<a/>
-    </div>
-
-    <div class="main-content">
-    <div>
-        <?php
-            if(isset($_GET['add_category'])){
-                include "add_category.php";
-            }
-        ?>
-
-    <div>
-        <?php
-            if(isset($_GET['add_product'])){
-                include "add_product.php";
-            }
-        ?>
-    </div>
-    </div>
-
-    </div>
     
-    </main> -->
 
 
 

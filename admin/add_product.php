@@ -13,7 +13,7 @@ if(isset($_POST['add_product'])){
         echo "<script>alert('Please Fill All Fields')</script>";
         exit();
     }else{
-        move_uploaded_file($product_image_tmp, "./product_images/$product_image");
+        move_uploaded_file($product_image_tmp, "product_images/$product_image");
         $insert_products = "INSERT INTO `products`(product_name, product_description, category_id, product_price, product_image,created_at,product_status) VALUES('$product_name', '$product_description', '$product_category', '$product_price', '$product_image',NOW(),'$product_status')";
         $product_result = mysqli_query($con, $insert_products);
         if($product_result){
@@ -28,13 +28,13 @@ if(isset($_POST['add_product'])){
 <form action="" method="post" enctype="multipart/form-data">
     <h1>Add Products</h1>
     <div class="form-group">
-        <label for="product_name">Product Name</label>
+        <label for="">Product Name</label>
         <input type="text" class="form-control" name="product_name">
 
-        <label for="product_description">Product Description</label>
+        <label for="">Product Description</label>
         <input type="text" class="form-control" name="product_description">
         
-        <label for="product_category">Product Category</label>
+        <label for="">Product Category</label>
         <select name="product_category" id="">
             <?php
                 $select_query = "SELECT * FROM categories";
@@ -47,10 +47,10 @@ if(isset($_POST['add_product'])){
             ?>
         </select>
 
-        <label for="product_price">Product Price</label>
+        <label for="">Product Price</label>
         <input type="text" class="form-control" name="product_price">
 
-        <label for="product_image">Product Image</label>
+        <label for="">Product Image</label>
         <input type="file" class="form-control" name="product_image">
         
 
