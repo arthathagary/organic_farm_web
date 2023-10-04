@@ -1,13 +1,9 @@
-<?php
-include './include/connect.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
-
+<head>
     <meta charset="utf-8">
-    <title>DOA</title>
+    <title>Foody - Organic Food Website Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -20,8 +16,8 @@ include './include/connect.php';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Lora:wght@600;700&display=swap" rel="stylesheet"> 
 
-    <!-- Icon Font Stylesheet -->
-    <script src="https://kit.fontawesome.com/084cdcba7c.js" crossorigin="anonymous"></script>
+     <!-- Icon Font Stylesheet -->
+     <script src="https://kit.fontawesome.com/084cdcba7c.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
 
@@ -33,6 +29,7 @@ include './include/connect.php';
 </head>
 
 <body>
+  
     <!-- Navbar Start -->
     <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
         
@@ -48,9 +45,17 @@ include './include/connect.php';
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
                     <a href="index.php" class="nav-item nav-link">Home</a>
                     <a href="about.html" class="nav-item nav-link">About Us</a>
-                    <a href="product.html" class="nav-item nav-link active">Products</a>
-                    <a href="product.html" class="nav-item nav-link active">Products</a>
-                    <a href="contact.php" class="nav-item nav-link">Contact Us</a>
+                    <a href="product.php" class="nav-item nav-link">Products</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="blog.html" class="dropdown-item">Blog Grid</a>
+                            <a href="feature.html" class="dropdown-item">Our Features</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="404.html" class="dropdown-item">404 Page</a>
+                        </div>
+                    </div>
+                    <a href="contact.php" class="nav-item nav-link active">Contact Us</a>
                 </div>
                 <div class="d-none d-lg-flex ms-2">
                     <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
@@ -69,85 +74,74 @@ include './include/connect.php';
     <!-- Navbar End -->
 
 
- 
+  
 
-
-    <!-- Product Start -->
-    <div class="container-xxl py-5">
+    <!-- Contact Start -->
+    <div class="container-xxl py-6">
         <div class="container">
-            <div class="row g-0 gx-5 align-items-end">
-                <div class="col-lg-6">
-                    <div class="section-header text-start mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                        <h1 class="display-5 mb-3">Our Products</h1>
-                        <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
-                    <ul class="nav nav-pills d-inline-flex justify-content-end mb-5">
-                        <?php
-                        $select_category = "SELECT * FROM categories";
-                        $result_category = mysqli_query($con, $select_category);
-                        while ($row_data = mysqli_fetch_array($result_category)) {
-                            $category_name = $row_data['category_name'];
-                            $category_id = $row_data['category_id'];
-                            echo "<li class='nav-item me-2'>
-                                <a class='btn btn-outline-primary border-2' data-bs-toggle='pill' href='products.php?category=$category_id'>$category_name</a>
-                            </li>";
-                        }
-                        ?>
-                    </ul>
-                </div>
+            <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h1 class="display-5 mb-3">Contact Us</h1>
+                <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
             </div>
-            <div class="tab-content">
-                <div id="tab-1" class="tab-pane fade show p-0 active">
-                    <div class="row g-4">
-                        <?php
-                        $select_query = "SELECT * FROM products";
-                        $result_query = mysqli_query($con, $select_query);
-                        while ($row = mysqli_fetch_assoc($result_query)){
-                            $product_id = $row['product_id'];
-                            $product_name = $row['product_name'];
-                            $product_description = $row['product_description'];
-                            $category_id = $row['category_id'];
-                            $product_price = $row['product_price'];
-                            $product_image = $row['product_image'];
-                            $product_status = $row['product_status'];
-
-                           echo "<div class='col-xl-3 col-lg-4 col-md-6'>
-                           <div class='product-item'>
-                               <div class='position-relative bg-light overflow-hidden'>
-                                   <img class='img-fluid w-100' src='./admin/product_images/$product_image' alt=''>
-                                   <div class='bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3'>New</div>
-                               </div>
-                               <div class='text-center p-4'>
-                                   <a class='d-block h5 mb-2' href=''>$product_name</a>
-                                   <span class='text-primary me-1'>$product_price</span>   
-                               </div>
-                               <div class='d-flex border-top'>
-                                   <small class='w-50 text-center border-end py-2'>
-                                       <a class='text-body' href=''><i class='fa fa-eye text-primary me-2'></i>View detail</a>
-                                   </small>
-                                   <small class='w-50 text-center py-2'>
-                                       <a class='text-body' href=''><i class='fa fa-shopping-bag text-primary me-2'></i>Add to cart</a>
-                                   </small>
-                               </div>
-                           </div>
-                       </div>";
-                        }
-                        ?>
-                       
-                       
-                        <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                            <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
+            <div class="row g-5 justify-content-center">
+                <div class="col-lg-5 col-md-12 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="bg-primary text-white d-flex flex-column justify-content-center h-100 p-5">
+                        <h5 class="text-white">Call Us</h5>
+                        <p class="mb-5"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                        <h5 class="text-white">Email Us</h5>
+                        <p class="mb-5"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <h5 class="text-white">Office Address</h5>
+                        <p class="mb-5"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                        <h5 class="text-white">Follow Us</h5>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-square btn-outline-light rounded-circle me-0" href=""><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
-               
-                
+                <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
+                    <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <label for="email">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <label for="subject">Subject</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 200px"></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-    <!-- Product End -->
+    <!-- Contact End -->
+
+
+   
 
 
     <!-- Footer Start -->
@@ -192,11 +186,11 @@ include './include/connect.php';
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a href="#">DOA</a>, All Right Reserved.
+                        &copy; <a href="#">Your Site Name</a>, All Right Reserved.
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Designed By <a href="">Agary</a>
+                        Designed By <a href="https://htmlcodex.com">HTML Codex</a>
                     </div>
                 </div>
             </div>
@@ -208,8 +202,6 @@ include './include/connect.php';
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/main.js"></script>
 </body>
