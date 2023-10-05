@@ -36,7 +36,7 @@
         <li class="title">Functions</li>
         <li class="item"><a href="index.php?add_category">Add Category</a></li>
         <li class="item"><a href="index.php?add_product">Add Product</a></li>
-        <li class="item"><a href="#">Portfolio</a></li>
+        <li class="item"><a href="index.php?add_blog">Add Blogs</a></li>
         <li class="item"><a href="#">Testimonials</a></li>
         <li class="item"><a href="#">Contact</a></li>
         <li class="divider"></li>
@@ -60,6 +60,14 @@
         <?php
             if(isset($_GET['add_product'])){
                 include "add_product.php";
+            }
+        ?>
+    </div>
+
+    <div>
+        <?php
+            if(isset($_GET['add_blog'])){
+                include "add_blog.php";
             }
         ?>
     </div>
