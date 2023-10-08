@@ -56,7 +56,7 @@
                     <div class="title_search">
                         <h1 class="display-5 mb-3">Our Products</h1>
                        
-   <form action="search_product.php" method="get" class="search">
+   <form action="" method="get" class="search">
       <input type="text" class="searchTerm" placeholder="Search" name="search_data">
       <input type="submit" class="searchButton" placeholder="Search" value="Search" name="search_data_product">
   
@@ -77,10 +77,8 @@
                 <div>
                     <div class="row g-4">
                         <?php
-                        getProducts();
+                        searchProduct();
                         getUniqueCategory();
-                        $ip = getIPAddress();  
-                        echo 'User Real IP Address - '.$ip;  
                         ?>
                        
                        

@@ -1,7 +1,4 @@
-<?php
-include './include/connect.php';
-include './functions/common_function.php';
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +34,8 @@ include './functions/common_function.php';
 <body>
    
     <!-- Navbar Start -->
-    <?php include_once('./include/navBar.php'); ?>
+    <?php include ('./include/navBar.php'); 
+    ?>
     <!-- Navbar End -->
 
 
@@ -144,7 +142,7 @@ include './functions/common_function.php';
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-"></i></a>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 

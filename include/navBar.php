@@ -1,3 +1,7 @@
+<?php 
+include ("./include/connect.php");
+include ("./functions/common_function.php");
+?>
 <div class="container-fluid fixed-top px-0">
         <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5  " >
             <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
@@ -12,20 +16,22 @@
                     <a href="about.php" class="nav-item nav-link">About Us</a>
                     <a href="product.php" class="nav-item nav-link">Products</a>
                     <a href="blog.php" class="nav-item nav-link">Blogs</a>
-                    </div>
                     <a href="contact.php" class="nav-item nav-link">Contact Us</a>
+                    <a href="" class="nav-item nav-link">Price: <?php totalPrice(); ?>/-</a>
                 </div>
                 <div class="d-none d-lg-flex ms-2">
-                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
-                        <small class="fa fa-search text-body"></small>
-                    </a>
+                
                     <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
                         <small class="fa fa-user text-body"></small>
                     </a>
-                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
-                        <small class="fa fa-shopping-bag text-body"></small>
+                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="cart.php">
+                        <small class="fa fa-shopping-bag text-body"><sup><?php getCardItemNum(); ?></sup></small>
                     </a>
                 </div>
             </div>
         </nav>
     </div>
+
+    <?php
+    card();
+    ?>
