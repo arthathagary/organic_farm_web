@@ -80,7 +80,6 @@
                         getProducts();
                         getUniqueCategory();
                         $ip = getIPAddress();  
-                        echo 'User Real IP Address - '.$ip;  
                         ?>
                        
                        

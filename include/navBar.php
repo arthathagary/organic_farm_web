@@ -1,6 +1,7 @@
 <?php 
 include ("./include/connect.php");
 include ("./functions/common_function.php");
+@session_start();
 ?>
 <div class="container-fluid fixed-top px-0">
         <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5  " >
@@ -18,6 +19,13 @@ include ("./functions/common_function.php");
                     <a href="blog.php" class="nav-item nav-link">Blogs</a>
                     <a href="contact.php" class="nav-item nav-link">Contact Us</a>
                     <a href="" class="nav-item nav-link">Price: <?php totalPrice(); ?>/-</a>
+                    <?php 
+                    if(isset($_SESSION['user_name'])){
+                        echo "<a href='user_area/user_logout.php' class='nav-item nav-link'>Logout</a>";
+                    }else{
+                        echo "<a href='user_area/user_login.php' class='nav-item nav-link'>Login</a>";
+                    }
+                     ?>
                 </div>
                 <div class="d-none d-lg-flex ms-2">
                 

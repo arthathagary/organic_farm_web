@@ -1,6 +1,7 @@
 <?php
-include ("../include/connect.php");
-include ("../functions/common_function.php");
+include ("../../../htdocs/doa/include/connect.php");
+include ("../../../htdocs/doa/functions/common_function.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -12,13 +13,13 @@ include ("../functions/common_function.php");
     <link rel="stylesheet" href="../css/user.css">
 </head>
 <body>
-<form method="post" action="" class="wrapper">
+<div class="wrapper">
 	<div class="registration_form">
 		<div class="title">
 			Registration Form
 		</div>
 
-		<form>
+		<form method="post" action="">
 			<div class="form_wrap">
 				<div class="input_grp">
 					<div class="input_wrap">
@@ -62,6 +63,7 @@ if(isset($_POST['user_register'])){
 	$lname = $_POST['lname'];
 	$username = $_POST['username'];
 	$password = $_POST['password'];
+	$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 	$confirm_password = $_POST['confirm_password'];
 	$user_ip = getIPAddress();
 
@@ -74,7 +76,7 @@ if(isset($_POST['user_register'])){
 		echo "<script>window.open('user_registration.php', '_self')</script>";
 	}else{
 	if($password == $confirm_password){
-		$query_user = "INSERT INTO user_details (first_name, last_name, user_name, user_password,user_ip_address) VALUES ('$fname', '$lname', '$username', '$password','$user_ip')";
+		$query_user = "INSERT INTO user_details (first_name, last_name, user_name, user_password,user_ip_address) VALUES ('$fname', '$lname', '$username', '$hashed_password','$user_ip')";
 		$result_user = mysqli_query($con, $query_user);
 		if($result_user){
 			echo "<script>alert('Registration Successful!')</script>";
