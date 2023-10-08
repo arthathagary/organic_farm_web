@@ -21,7 +21,7 @@ include ("./functions/common_function.php");
                 </div>
                 <div class="d-none d-lg-flex ms-2">
                 
-                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
+                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="../../doa/user_area/user_login.php">
                         <small class="fa fa-user text-body"></small>
                     </a>
                     <a class="btn-sm-square bg-white rounded-circle ms-3" href="cart.php">
