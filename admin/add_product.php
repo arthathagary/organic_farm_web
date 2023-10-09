@@ -25,17 +25,28 @@ if(isset($_POST['add_product'])){
     } 
 }
 ?>
-<form action="" method="post" enctype="multipart/form-data">
-    <h1>Add Products</h1>
-    <div class="form-group">
-        <label for="">Product Name</label>
-        <input type="text" class="form-control" name="product_name">
 
-        <label for="">Product Description</label>
-        <input type="text" class="form-control" name="product_description">
-        
-        <label for="">Product Category</label>
-        <select name="product_category" id="">
+
+
+<form class="wrapper container" action="" method="post" enctype="multipart/form-data">
+	<div class="registration_form">
+		<div class="title">
+			Add Products
+		</div>
+
+		<form method="post" action="">
+			<div class="form_wrap">
+				<div class="input_wrap">
+					<label for="product_name">Product Name</label>
+					<input type="text" id="product_name" name="product_name">
+				</div>
+				<div class="input_wrap">
+					<label for="product_description">Product Description</label>
+					<input type="text" id="product_description" name="product_description">
+				</div>
+                <div class="input_wrap">
+					<label for="product_category">Product Category</label>
+                    <select name="product_category" id="">
             <?php
                 $select_query = "SELECT * FROM categories";
                 $result_query = mysqli_query($con, $select_query);
@@ -46,17 +57,22 @@ if(isset($_POST['add_product'])){
                 }
             ?>
         </select>
-
-        <label for="">Product Price</label>
-        <input type="text" class="form-control" name="product_price">
-
-        <label for="">Product Image</label>
-        <input type="file" class="form-control" name="product_image">
-        
-
-        <input type="submit" class="btn btn-primary" name="add_product" value="Add Product">
-    </div>
-    
+                </div>
+                <div class="input_wrap">
+					<label for="product_price">Product Price</label>
+					<input type="text" id="product_price" name="product_price">
+				</div>
+                <div class="input_wrap">
+					<label for="product_image">Product Image</label>
+					<input type="file" id="product_image" name="product_image">
+				</div>
+				<div class="input_wrap">
+					<input type="submit" value="Add Product" class="submit_btn" name="add_product">
+				</div>
+			</div>
+		</form>
+	</div>
 </form>
+    
 
 

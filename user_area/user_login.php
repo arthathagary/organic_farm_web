@@ -56,6 +56,23 @@ if(isset($_POST['user_login'])){
 		$_SESSION['user_name'] = $user_name;
 		if(password_verify($password,$row_data['user_password'])){
 			if($row_count ==1){
+				if($row_data['user_type'] == 'admin'){
+					$_SESSION['user_type'] = $row_data['user_type'];
+					echo "<script>alert('Login Successfull')</script>";
+					echo "<script>window.open('../admin/index.php','_self')</script>";
+				}else if($row_data['user_type'] == 'normal'){
+					$_SESSION['user_type'] = $row_data['user_type'];
+					echo "<script>alert('Login Successfull')</script>";
+					echo "<script>window.open('../index.php','_self')</script>";
+				}else if($row_data['user_type'] == 'farmer'){
+					$_SESSION['user_type'] = $row_data['user_type'];
+					echo "<script>alert('Login Successfull')</script>";
+					echo "<script>window.open('../farmer_area/index.php','_self')</script>";
+				}else if($row_data['user_type'] == 'officer'){
+					$_SESSION['user_type'] = $row_data['user_type'];
+					echo "<script>alert('Login Successfull')</script>";
+					echo "<script>window.open('../officer_area/index.php','_self')</script>";
+				}else{
 				echo "<script>alert('Login Successfull')</script>";
 				echo "<script>window.open('../index.php','_self')</script>";
 			}
@@ -66,6 +83,6 @@ if(isset($_POST['user_login'])){
 		echo "<script>alert('Invalid Credentials')</script>";
 	}
 }
-		
+}	
 
 ?>

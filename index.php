@@ -1,4 +1,6 @@
-
+<?php
+@session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,7 +99,7 @@
 
 
     <!-- Question Start -->
-    <div class="container-fluid bg-primary bg-icon mt-5 py-6">
+    <form accept="" method="post" class="container-fluid bg-primary bg-icon mt-5 py-6">
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-md-7  " >
@@ -105,11 +107,27 @@
                     <p class="text-white mb-0">We're here to help! Your curiosity matters to us, and we're always eager to assist you in any way we can. Whether you want to know more about our products, our sustainable practices, or anything else related to organic fruits and vegetables, don't hesitate to reach out.</p>
                 </div>
                 <div class="col-md-5 text-md-end" >
-                    <a class="btn btn-lg btn-secondary rounded-pill py-3 px-5" href="">Ask</a>
+                    <input type="submit" class="btn btn-lg btn-secondary rounded-pill py-3 px-5"  name="quiz_btn" value="Ask">
+                    <?php
+                    if(isset($_POST['quiz_btn'])){
+                        if(isset($_SESSION['user_type'])){
+                            if($_SESSION['user_type'] == 'farmer'){
+                                echo "<script>window.open('./farmer_area/index.php','_self')</script>";
+                            }else{
+                                echo "<script>alert('Only Farmers Can Ask Question')</script>";
+                                echo "<script>window.open('./index.php','_self')</script>";
+                                
+                            }
+                        }else{
+                                echo "<script>window.open('./user_area/user_login.php','_self')</script>";
+                            }
+                    }
+                
+            ?>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
     <!-- Question End -->
 
 

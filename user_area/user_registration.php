@@ -45,8 +45,41 @@ include ("../../../htdocs/doa/functions/common_function.php");
 					<input type="password" id="comfirm_password" name="confirm_password">
 				</div>
 				<div class="input_wrap">
+					<label>User type</label>
+					<ul>
+						<li>
+							<label class="radio_wrap">
+								<input type="radio" name="selected_option" value="normal" class="input_radio" >
+								<span>Normal</span>
+							</label>
+						</li>
+						<li>
+							<label class="radio_wrap">
+								<input type="radio" name="selected_option" value="admin" class="input_radio">
+								<span>Admin</span>
+							</label>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<label class="radio_wrap">
+								<input type="radio" name="selected_option" value="farmer" class="input_radio" >
+								<span>Farmer</span>
+							</label>
+						</li>
+						<li>
+							<label class="radio_wrap">
+								<input type="radio" name="selected_option" value="officer" class="input_radio" >
+								<span>Officer</span>
+							</label>
+						</li>
+					</ul>
+				</div>
+			
+				<div class="input_wrap">
 					<input type="submit" value="Register Now" class="submit_btn" name="user_register">
 				</div>
+				
 				<div class="input_wrap">
 					<p class="sign-up-text">Already have an account? <a class="sign-up-text" href="user_login.php">Login Here</a></p>
 			</div>
@@ -66,6 +99,7 @@ if(isset($_POST['user_register'])){
 	$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 	$confirm_password = $_POST['confirm_password'];
 	$user_ip = getIPAddress();
+	$selected_option = $_POST['selected_option'];
 
 	//select username and prevent duplicate username
 	$query_select = "SELECT * FROM user_details WHERE user_name = '$username'";
@@ -76,7 +110,7 @@ if(isset($_POST['user_register'])){
 		echo "<script>window.open('user_registration.php', '_self')</script>";
 	}else{
 	if($password == $confirm_password){
-		$query_user = "INSERT INTO user_details (first_name, last_name, user_name, user_password,user_ip_address) VALUES ('$fname', '$lname', '$username', '$hashed_password','$user_ip')";
+		$query_user = "INSERT INTO user_details (first_name, last_name, user_name, user_password,user_ip_address,user_type) VALUES ('$fname', '$lname', '$username', '$hashed_password','$user_ip','$selected_option')";
 		$result_user = mysqli_query($con, $query_user);
 		if($result_user){
 			echo "<script>alert('Registration Successful!')</script>";

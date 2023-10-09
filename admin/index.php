@@ -14,38 +14,40 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+   
     <!-- Template Stylesheet -->
-    
     <link rel="stylesheet" href="../css/admin.css">
+    
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
+<main>
+<div class="container-fluid  fixed-top px-0">
+        <nav class="navbar navbar-expand-lg  navbar-light py-lg-0 px-lg-5  " >
+            <a href="" class="navbar-brand ms-4 ms-lg-0">
+                <h1 class="fw-bold text-primary m-0">DO<span class="text-secondary">A</span></h1>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.php?add_category" class="nav-item nav-link">Add Categories</a>
+                    <a href="index.php?add_product" class="nav-item nav-link">Add Products</a>
+                    <a href="index.php?add_blog" class="nav-item nav-link">Add Blogs</a>
+                    <a href="index.php?quiz" class="nav-item nav-link">View Questions</a>
+                    <a href="contact.php?accounts" class="nav-item nav-link">View Accounts</a>
+                </div>
+               
+            </div>
+        </nav>
+    </div>
+
+   
+
+
+
     
-
-
-
-
-    
-    <a href="#sidenav" class="btn open">&#8801;</a>
-<div class="sidenav" id="sidenav">
-    <ul>
-        <li class="center user">
-            <!-- <img src="https://placeimg.com/300/300/people" alt="User" /> -->
-            <p>Admin</p>
-        </li>
-        <li class="divider"></li>
-        <li class="title">Functions</li>
-        <li class="item"><a href="index.php?add_category">Add Category</a></li>
-        <li class="item"><a href="index.php?add_product">Add Product</a></li>
-        <li class="item"><a href="index.php?add_blog">Add Blogs</a></li>
-        <li class="item"><a href="#">Testimonials</a></li>
-        <li class="item"><a href="#">Contact</a></li>
-        <li class="divider"></li>
-        <li class="title">Projects</li>
-        <li class="item"><a href="#">Project 1</a></li>
-        <li class="item"><a href="#">Project 2</a></li>
-        <li class="item"><a href="#">Project 3</a></li>
-    </ul>
-</div>
 
 
 <div class="main-content">
@@ -73,6 +75,7 @@
     </div>
     </div>
 </div>
+</main>
 
    
 
