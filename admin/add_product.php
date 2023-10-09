@@ -27,22 +27,23 @@ if(isset($_POST['add_product'])){
 ?>
 
 
-
-<form class="wrapper container" action="" method="post" enctype="multipart/form-data">
+<main class="product-section container">
+<aside class="add-product-section">
+<form class="wrapper" action="" method="post" enctype="multipart/form-data">
 	<div class="registration_form">
 		<div class="title">
 			Add Products
 		</div>
 
-		<form method="post" action="">
+		
 			<div class="form_wrap">
 				<div class="input_wrap">
 					<label for="product_name">Product Name</label>
-					<input type="text" id="product_name" name="product_name">
+					<input type="text" id="product_name" name="product_name" required autocomplete="off">
 				</div>
 				<div class="input_wrap">
 					<label for="product_description">Product Description</label>
-					<input type="text" id="product_description" name="product_description">
+					<input type="text" id="product_description" name="product_description" required autocomplete="off">
 				</div>
                 <div class="input_wrap">
 					<label for="product_category">Product Category</label>
@@ -60,19 +61,64 @@ if(isset($_POST['add_product'])){
                 </div>
                 <div class="input_wrap">
 					<label for="product_price">Product Price</label>
-					<input type="text" id="product_price" name="product_price">
+					<input type="text" id="product_price" name="product_price" required autocomplete="off">
 				</div>
                 <div class="input_wrap">
 					<label for="product_image">Product Image</label>
-					<input type="file" id="product_image" name="product_image">
+					<input type="file" id="product_image" name="product_image" required autocomplete="off">
 				</div>
 				<div class="input_wrap">
 					<input type="submit" value="Add Product" class="submit_btn" name="add_product">
 				</div>
 			</div>
-		</form>
+		
 	</div>
 </form>
+</aside>
+
+<div class="table-section">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Description</th>
+    
+                <th>Product Price</th>
+                <th>Product Image</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+            $select_query = "SELECT * FROM products";
+            $result_query = mysqli_query($con, $select_query);
+            while($row = mysqli_fetch_assoc($result_query)){
+                $product_id = $row['product_id'];
+                $product_name = $row['product_name'];
+                $product_description = $row['product_description'];
+                $category_id = $row['category_id'];
+                $product_price = $row['product_price'];
+                $product_image = $row['product_image'];
+               
+                
+                echo "<tr>";
+                echo "<td>{$product_name}</td>";
+                echo "<td>{$product_description}</td>";
+                
+                echo "<td>{$product_price}</td>";
+                echo "<td><img src='product_images/{$product_image}' width='100px' height='100px'></td>";
+               
+               
+                echo "<td><a href='edit_product.php?edit_product={$product_id}'>Edit</a></td>";
+                echo "<td><a href='delete_product.php?delete_product={$product_id}'>Delete</a></td>";
+                echo "</tr>";
+            }
+        ?>
+        </tbody>
+    </table>
+</div>
+</main>
     
 
 
