@@ -1,5 +1,5 @@
 <?php
-session_start();
+@session_start();
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +40,7 @@ session_start();
      <!-- Page Header Start -->
      <div class="container-fluid page-header">
         <div class="container">
-            <h1 class="display-3 mb-3 ">Products</h1>
+            <h1 class="display-3 mb-3 ">Checkout</h1>
         </div>
     </div>
     <!-- Page Header End -->
@@ -49,8 +49,8 @@ session_start();
     <div class="col-md-12">
         <div class="row">
             <?php
-            if(!isset($_SESSION['usename'])){
-               include ("./user_area/user_login.php");
+            if(!isset($_SESSION['user_name'])){
+            echo "<script>window.open('./user_area/user_login.php','_self')</script>";
             }else{
                 include ("./payment.php");
             }
