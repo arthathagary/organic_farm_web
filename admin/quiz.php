@@ -13,7 +13,7 @@
             $question_id = $row['question_id'];
             $question_title = $row['question_title'];
             $question_content = $row['question_content'];
-            echo "<table class='table table-bordered'>";
+            echo "<table class='table table-bordered container my-6'>";
             echo "<thead>";
             echo "<tr>";
             echo "<th>Question ID</th>";

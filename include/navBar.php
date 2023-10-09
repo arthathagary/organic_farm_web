@@ -1,6 +1,6 @@
 <?php 
-include ("./include/connect.php");
-include ("./functions/common_function.php");
+include_once ("./include/connect.php");
+include_once ("./functions/common_function.php");
 @session_start();
 ?>
 <div class="container-fluid fixed-top px-0">

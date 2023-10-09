@@ -1,26 +1,7 @@
 <?php
-    
-
-    if(isset($_POST['send_message'])){
-        $user_name = $_POST['user_name'];
-        $user_email = $_POST['user_email'];
-        $user_subject = $_POST['user_subject'];
-        $user_message = $_POST['user_message'];
-
-        if(empty($user_name) || empty($user_email) || empty($user_subject) || empty($user_message)){
-            echo "<script>alert('Please Fill All Fields')</script>";
-            exit();
-        }else{
-            $insert_message = "INSERT INTO `contact`(contact_name, contact_email, contact_subject, contact_message, created_at) VALUES('$user_name', '$user_email', '$user_subject', '$user_message', NOW())";
-            $message_result = mysqli_query($con, $insert_message);
-            if(!$message_result){
-                die("Query Failed: ".mysqli_error($con));
-            }else{
-                echo "<script>alert('Message Sent Successfully')</script>";
-            }  
-        }
-    }
+include ("./include/connect.php");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,7 +76,7 @@
                 </div>
                 <div class="col-lg-7 col-md-12  " >
                     <p class="mb-4">At Department Of Agriculture, we value your feedback, questions, and inquiries. Our dedicated team is here to assist you in any way we can. Whether you have a query about our products, want to provide feedback, or require assistance with an order, please don't hesitate to reach out to us.</p>
-                    <form method="post" action="contact.php">
+                    <form method="post" action="">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -122,7 +103,8 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary rounded-pill py-3 px-5" type="submit" name="send_message">Send Message</button>
+                                <input type="submit" value="Send Message"  name="send_message" class="btn btn-primary rounded-pill py-3 px-5">
+                                
                             </div>
                         </div>
                     </form>
@@ -145,6 +127,31 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-"></i></a>
+
+    <?php
+    //post form details and save it in database
+    if(isset($_POST['send_message'])){
+        $user_name = $_POST['user_name'];
+        $user_email = $_POST['user_email'];
+        $user_subject = $_POST['user_subject'];
+        $user_message = $_POST['user_message'];
+
+        if(empty($user_name) || empty($user_email) || empty($user_subject) || empty($user_message)){
+            echo "<script>alert('Please Fill All Fields')</script>";
+            exit();
+        }else{
+            $insert_message = "INSERT INTO `contact`(contact_name, contact_email, contact_subject, contact_message, created_at) VALUES('$user_name', '$user_email', '$user_subject', '$user_message', NOW())";
+            $message_result = mysqli_query($con, $insert_message);
+            if(!$message_result){
+                die("Query Failed: ".mysqli_error($con));
+            }else{
+                echo "<script>alert('Message Sent Successfully')</script>";
+            }  
+        }
+        
+    
+    }
+    ?>
 
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/main.js"></script>
