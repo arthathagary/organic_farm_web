@@ -32,9 +32,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.php?add_category" class="nav-item nav-link">Add Categories</a>
+                <a href="index.php?add_category" class="nav-item nav-link">Categories</a>
                     <a href="index.php?add_product" class="nav-item nav-link">Products</a>
-                    <a href="index.php?add_blog" class="nav-item nav-link">Add Blogs</a>
+                    <a href="index.php?add_blog" class="nav-item nav-link">Blogs</a>
                     <a href="index.php?quiz" class="nav-item nav-link">View Questions</a>
                     <a href="contact.php?accounts" class="nav-item nav-link">View Accounts</a>
                 </div>
@@ -70,6 +70,13 @@
         <?php
             if(isset($_GET['add_blog'])){
                 include "add_blog.php";
+            }
+        ?>
+    </div>
+    <div>
+        <?php
+            if(isset($_GET['quiz'])){
+                include "quiz.php";
             }
         ?>
     </div>

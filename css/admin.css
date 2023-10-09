@@ -18,9 +18,7 @@ body{
 	align-items: center;
 }
 
-.wrapper-category{
-    
-}
+
 
 .registration_form{
 	background: #545871;
@@ -114,15 +112,18 @@ body{
 }
 
 
-.product-section,.category-section{
+.product-section{
     display: flex;
-    flex-wrap: wrap;
+	gap: 32px;
     
 }
 
-.product-section{
-    justify-content: space-between;
+.category-section{
+	display: flex;
+	flex-wrap: wrap;
 }
+
+
 
 
 .category-section{
