@@ -57,11 +57,15 @@
                 </div>
                 <div class="col-lg-6  " >
                     <h1 class="display-5 mb-4">Best Organic Fruits And Vegetables</h1>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                    <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
-                    <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
-                    <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
-                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Read More</a>
+                    <p class="mb-4">Welcome to Department Of Agriculture, your trusted source for fresh, organic fruits and vegetables!</p>
+
+<p>At Department Of Agriculture, we are passionate about bringing you the highest quality, locally sourced, and sustainably grown produce. Our commitment to organic farming practices ensures that every bite you take is not only delicious but also free from harmful pesticides and chemicals.</p>
+
+<p>Our journey began with a simple belief: everyone deserves access to wholesome, nutritious food. That's why we work tirelessly to connect you with the bounty of nature, delivering the goodness of freshly harvested fruits and vegetables right to your doorstep.</p>
+
+<p>From farm to table, we take pride in supporting local farmers and communities, reducing our carbon footprint, and promoting a healthier lifestyle. Join us in our mission to make healthy living more accessible and delicious than ever.</p>
+
+                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Products</a>
                 </div>
             </div>
         </div>

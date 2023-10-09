@@ -67,7 +67,6 @@
                 <div class="col-lg-6">
                     <div class="section-header text-start mb-5"  style="max-width: 500px;">
                         <h1 class="display-5 mb-3">Our Products</h1>
-                        <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
                     </div>
                 </div>
                 <div class="col-lg-6 text-start text-lg-end  slideInRight" >
@@ -103,10 +102,10 @@
             <div class="row g-5 align-items-center">
                 <div class="col-md-7  " >
                     <h1 class="display-5 text-white mb-3">Put your questions</h1>
-                    <p class="text-white mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.</p>
+                    <p class="text-white mb-0">We're here to help! Your curiosity matters to us, and we're always eager to assist you in any way we can. Whether you want to know more about our products, our sustainable practices, or anything else related to organic fruits and vegetables, don't hesitate to reach out.</p>
                 </div>
                 <div class="col-md-5 text-md-end" >
-                    <a class="btn btn-lg btn-secondary rounded-pill py-3 px-5" href="">Visit Now</a>
+                    <a class="btn btn-lg btn-secondary rounded-pill py-3 px-5" href="">Ask</a>
                 </div>
             </div>
         </div>
@@ -122,7 +121,6 @@
         <div class="container">
             <div class="section-header text-center mx-auto mb-5  "  style="max-width: 500px;">
                 <h1 class="display-5 mb-3">Latest Blog</h1>
-                <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
             </div>
             <div class="row g-4">
                <?php

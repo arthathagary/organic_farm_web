@@ -1,6 +1,3 @@
-<?php
-@session_start();
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,9 +47,10 @@
         <div class="row">
             <?php
             if(!isset($_SESSION['user_name'])){
+            echo "<script>alert('Please Login First')</script>";
             echo "<script>window.open('./user_area/user_login.php','_self')</script>";
             }else{
-                include ("./payment.php");
+                echo "<script>window.open('./payment.php','_self')</script>";
             }
             ?>
         </div>

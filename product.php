@@ -52,9 +52,9 @@
         <div class="container">
             <div class="row g-0 gx-5 align-items-end">
                 <div class="col-lg-6">
-                    <div class="section-header text-start mb-5  ">
+                    <div class="text-start mb-5  ">
                     <div class="title_search">
-                        <h1 class="display-5 mb-3">Our Products</h1>
+                      
                        
    <form action="search_product.php" method="get" class="search">
       <input type="text" class="searchTerm" placeholder="Search" name="search_data">

@@ -74,17 +74,16 @@
         <div class="container">
             <div class="section-header text-center mx-auto mb-5  "  style="max-width: 500px;">
                 <h1 class="display-5 mb-3">Contact Us</h1>
-                <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
             </div>
             <div class="row g-5 justify-content-center">
                 <div class="col-lg-5 col-md-12  " >
                     <div class="bg-primary text-white d-flex flex-column justify-content-center h-100 p-5">
                         <h5 class="text-white">Call Us</h5>
-                        <p class="mb-5"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                        <p class="mb-5"><i class="fa fa-phone-alt me-3"></i>+075 55 555 55</p>
                         <h5 class="text-white">Email Us</h5>
-                        <p class="mb-5"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <p class="mb-5"><i class="fa fa-envelope me-3"></i>contact@doa.com</p>
                         <h5 class="text-white">Office Address</h5>
-                        <p class="mb-5"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                        <p class="mb-5"><i class="fa fa-map-marker-alt me-3"></i>123 Street, Kinniya, Srilanka</p>
                         <h5 class="text-white">Follow Us</h5>
                         <div class="d-flex pt-2">
                             <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-twitter"></i></a>
@@ -95,7 +94,7 @@
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-12  " >
-                    <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+                    <p class="mb-4">At Department Of Agriculture, we value your feedback, questions, and inquiries. Our dedicated team is here to assist you in any way we can. Whether you have a query about our products, want to provide feedback, or require assistance with an order, please don't hesitate to reach out to us.</p>
                     <form method="post" action="contact.php">
                         <div class="row g-3">
                             <div class="col-md-6">

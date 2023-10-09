@@ -51,12 +51,12 @@
     <tr>
 
     <?php
-global $con;
-$get_ip_add = getIPAddress();
-$total_price = 0;
-$select_card = "SELECT * FROM `card_details` WHERE ip_address = '$get_ip_add'";
-$result_card = mysqli_query($con, $select_card);
-$result_card_count = mysqli_num_rows($result_card);
+ global $con;
+ $get_ip_add = getIPAddress();
+ $total_price = 0;
+ $select_card = "SELECT * FROM `card_details` WHERE ip_address = '$get_ip_add'";
+ $result_card = mysqli_query($con, $select_card);
+  $result_card_count = mysqli_num_rows($result_card);
 if($result_card_count>0){
   echo "<th>Product Title</th>
   <th>Product Image</th>
@@ -68,34 +68,32 @@ if($result_card_count>0){
 </thead>
 <tbody>";
 while($row=mysqli_fetch_array($result_card)){
-    $product_id = $row['product_id'];
-    $select_product = "SELECT * FROM `products` WHERE product_id = $product_id";
-    $result_product = mysqli_query($con, $select_product);
-    
-    while($row_product=mysqli_fetch_array($result_product)){
-        $product_name = $row_product['product_name'];
-        $product_image = $row_product['product_image'];
-
-        $product_price = $row_product['product_price'];
-        // $product_values = array_sum($product_price);
-        $total_price += $product_price;
+  $product_id = $row['product_id'];
+  $select_product = "SELECT * FROM `products` WHERE product_id = $product_id";
+  $result_product = mysqli_query($con, $select_product);
+  while($row_product=mysqli_fetch_array($result_product)){
+      $product_price = array($row_product['product_price']);
+      $price_table = $row_product['product_price'];
+      $product_name = $row_product['product_name'];
+      $product_image = $row_product['product_image'];
+      $product_values = array_sum($product_price);
+      $total_price += $product_values;
 ?>
         <tr>
         <td ><?php echo $product_name ?></td>
         <td ><img src='./admin/product_images/<?php echo $product_image ?>' class='cart-img' /></td>
         <td ><input type='text' name='qty' id=''></td>
-        <td ><?php echo $product_price?>/-</td>
+        <td ><?php echo $price_table?>/-</td>
         <td ><input type='checkbox' name="removeitem[]" value="<?php echo $product_id ?>" ></td>
         <td >
           <input type='submit' value='Update Card' name='update_cart'>
           <?php 
-          $get_ip_add = getIPAddress();
-          if(isset($_POST['update_cart'])){
-            $quantities = $_POST['qty'];
-            $update_qty = "UPDATE `card_details` SET `quantity` = $quantities WHERE `ip_address` = '$get_ip_add'";
-            $result_update_qty = mysqli_query($con, $update_qty);
-            $total_price = $total_price * $quantities;
-          }
+         if(isset($_POST['update_cart'])){
+          $quantities = $_POST['qty'];
+          $update_qty = "UPDATE `card_details` SET `quantity` = $quantities WHERE `product_id` = $product_id AND `ip_address` = '$get_ip_add'";
+          $result_update_qty = mysqli_query($con, $update_qty);
+          $total_price = $total_price * $quantities;
+         }
           ?>
           <input type='submit' value='Remove Item' name='remove_button'>
         </td>

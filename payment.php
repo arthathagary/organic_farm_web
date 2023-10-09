@@ -1,7 +1,4 @@
-<?php
-include ('./include/connect.php');
-include ('./functions/common_function.php');
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,6 +25,17 @@ include ('./functions/common_function.php');
 <link href="./css/styles.css" rel="stylesheet">
 </head>
 <body>
+     <!-- Navbar Start -->
+     <?php include ('./include/navBar.php'); ?>
+    <!-- Navbar End -->
+
+     <!-- Page Header Start -->
+     <div class="container-fluid page-header">
+        <div class="container">
+            <h1 class="display-3 mb-3 ">Checkout</h1>
+        </div>
+    </div>
+    <!-- Page Header End -->
     <div class="row container">
         <div class="col-md-12">
             <div class="row">
@@ -50,7 +58,7 @@ include ('./functions/common_function.php');
             $product_image = $row_product['product_image'];
             $product_quantity = $row['quantity'];
             $product_price = $row_product['product_price'];
-            $total_price += $product_price;
+            $total_price += $product_price * $product_quantity;
             if($product_quantity==0){
                 $product_quantity = 1;
             }else{
@@ -60,12 +68,38 @@ include ('./functions/common_function.php');
         }
     }
     echo "<p class='text-center'>$total_price</p>
-    <p class='text-center'>$product_quantity , $values</p>
+    <p class='text-center'>$product_quantity </p>
     ";
     ?>
     <form action="" method="post">
     <input type="submit" value="Confirm Payment" name="confirm_payment" class="btn btn-outline btn-primary">
     </form>
+
+
+    <?php
+    if(isset($_POST['confirm_payment'])){
+        $insert_order = "INSERT INTO `order_details`(`invoice_number`, `product_id`, `quantity`, `status`) VALUES ('$invoice_number','$product_id','$product_quantity','$status')";
+        $result_order = mysqli_query($con, $insert_order);
+        if($result_order){
+            echo "<script>alert('Order Placed Successfully')</script>";
+            echo "<script>window.open('./index.php','_self')</script>";
+        }else{
+            echo "<script>alert('Order Placed Failed')</script>";
+            echo "<script>window.open('./index.php','_self')</script>";
+        }
+    }
+
+    ?>
+
+      <!-- Footer Start -->
+      <?php
+    include ("./include/footer.php");
+    ?>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
             </div>

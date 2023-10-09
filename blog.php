@@ -52,7 +52,6 @@
         <div class="container">
             <div class="section-header text-center mx-auto mb-5  "  style="max-width: 500px;">
                 <h1 class="display-5 mb-3">Latest Blog</h1>
-                <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
             </div>
             <div class="row g-4">
             <?php
