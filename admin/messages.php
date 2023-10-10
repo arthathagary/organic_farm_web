@@ -3,7 +3,7 @@
 ?>
 
 
-<div class="table-section">
+<div class="table-section container pt-2">
     <table class="table table-bordered">
         <thead>
             <tr>

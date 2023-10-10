@@ -37,7 +37,7 @@
                     <a href="index.php?add_blog" class="nav-item nav-link">Blogs</a>
                     <a href="index.php?quiz" class="nav-item nav-link">Questions</a>
                     <a href="index.php?messages" class="nav-item nav-link">Messages</a>
-                    <a href="index.php?messages" class="nav-item nav-link">Orders</a>
+                    <a href="index.php?orders" class="nav-item nav-link">Orders</a>
                 </div>
                
             </div>
@@ -78,6 +78,13 @@
         <?php
             if(isset($_GET['quiz'])){
                 include "quiz.php";
+            }
+        ?>
+    </div>
+    <div>
+        <?php
+            if(isset($_GET['orders'])){
+                include "orders.php";
             }
         ?>
     </div>
