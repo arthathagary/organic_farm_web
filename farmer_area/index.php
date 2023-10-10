@@ -45,7 +45,8 @@ include ("../../../htdocs/doa/functions/common_function.php");
 if(isset($_POST['submit_quiz'])){
     $quiz_title = $_POST['quiz_title'];
     $quiz = $_POST['quiz'];
-    $insert_query = "INSERT INTO `questions`(`question_title`, `question_content`) VALUES ('$quiz_title','$quiz')";
+	$answer = 'Waiting for answer';
+    $insert_query = "INSERT INTO `questions`(`question_title`, `question_content`,`answer`) VALUES ('$quiz_title','$quiz','$answer')";
     $result_insert = mysqli_query($con,$insert_query);
     if($result_insert){
         echo "<script>alert('Quiz Added Successfully')</script>";

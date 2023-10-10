@@ -28,7 +28,7 @@ if(isset($_POST['add_blog'])){
 
 
 
-<main class="product-section container">
+<main class="blog-section container">
 
 <form class="wrapper" action="" method="post" enctype="multipart/form-data">
 	<div class="registration_form">
@@ -68,7 +68,7 @@ if(isset($_POST['add_blog'])){
 	</div>
 </form>
 
-<table class="table table-bordered">
+<table class="table table-bordered blog-table">
     <thead>
         <tr>
            
@@ -97,7 +97,7 @@ if(isset($_POST['add_blog'])){
                 echo "<td><img src='./blog_images/{$blog_image}' width='100px' height='100px'></td>";
                 echo "<td>{$blog_date}</td>";
                 echo "<td>{$who_post}</td>";
-                echo "<td><a href='index.php?delete_blog={$blog_id}'>Delete</a></td>";
+                echo "<td><a href='delete_blog.php?delete_blog={$blog_id}'>Delete</a></td>";
                 echo "</tr>";
             }
         ?>
@@ -107,15 +107,3 @@ if(isset($_POST['add_blog'])){
 </main>
 
 
-<?php
-    if(isset($_GET['delete_blog'])){
-        $delete_blog_id = $_GET['delete_blog'];
-        $delete_blog = "DELETE FROM blogs WHERE blog_id = '$delete_blog_id'";
-        $delete_blog_result = mysqli_query($con, $delete_blog);
-        if($delete_blog_result){
-            echo "<script>alert('Blog Deleted Successfully')</script>";
-            echo "<script>window.open('index.php?add_blog', '_self')</script>";
-        }else{
-            echo "<script>alert('Blog Not Deleted')</script>";
-        }
-    }

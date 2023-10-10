@@ -24,13 +24,11 @@ function getProducts() {
                                </div>
                                <div class='text-center p-4'>
                                    <a class='d-block h5 mb-2' href=''>$product_name</a>
+                                   <p>$product_description</p>
                                    <span class='text-primary me-1'>Price: $product_price /-</span>   
                                </div>
                                <div class='d-flex border-top'>
-                                   <small class='w-50 text-center border-end py-2'>
-                                       <a class='text-body' href=''><i class='fa fa-eye text-primary me-2'></i>View detail</a>
-                                   </small>
-                                   <small class='w-50 text-center py-2'>
+                                   <small class='w-100 text-center py-2  border-end'>
                                        <a class='text-body' href='product.php?add_to_card=$product_id'><i class='fa fa-shopping-bag text-primary me-2'></i>Add to cart</a>
                                    </small>
                                </div>
@@ -64,16 +62,14 @@ function getLimitedProducts() {
                                 </div>
                                 <div class='text-center p-4'>
                                     <a class='d-block h5 mb-2' href=''>$product_name</a>
+                                    <p>$product_description</p>
                                     <span class='text-primary me-1'>Price: $product_price /-</span>    
                                 </div>
                                 <div class='d-flex border-top'>
-                                    <small class='w-50 text-center border-end py-2'>
-                                        <a class='text-body' href=''><i class='fa fa-eye text-primary me-2'></i>View detail</a>
-                                    </small>
-                                    <small class='w-50 text-center py-2'>
+                                <small class='w-100 text-center py-2  border-end'>
                                     <a class='text-body' href='product.php?add_to_card=$product_id'><i class='fa fa-shopping-bag text-primary me-2'></i>Add to cart</a>
-                                    </small>
-                                </div>
+                                </small>
+                            </div>
                             </div>
                         </div>";
                         
@@ -114,16 +110,14 @@ function getUniqueCategory() {
                                </div>
                                <div class='text-center p-4'>
                                    <a class='d-block h5 mb-2' href=''>$product_name</a>
+                                   <p>$product_description</p>
                                    <span class='text-primary me-1'>Price: $product_price /-</span>    
                                </div>
                                <div class='d-flex border-top'>
-                                   <small class='w-50 text-center border-end py-2'>
-                                       <a class='text-body' href=''><i class='fa fa-eye text-primary me-2'></i>View detail</a>
-                                   </small>
-                                   <small class='w-50 text-center py-2'>
-                                       <a class='text-body' href='product.php?add_to_card=$product_id'><i class='fa fa-shopping-bag text-primary me-2'></i>Add to cart</a>
-                                   </small>
-                               </div>
+                               <small class='w-100 text-center py-2  border-end'>
+                                   <a class='text-body' href='product.php?add_to_card=$product_id'><i class='fa fa-shopping-bag text-primary me-2'></i>Add to cart</a>
+                               </small>
+                           </div>
                            </div>
                        </div>";
                        
@@ -162,13 +156,11 @@ function getLimitedUniqueCategory() {
                                </div>
                                <div class='text-center p-4'>
                                    <a class='d-block h5 mb-2' href=''>$product_name</a>
+                                   <p>$product_description</p>
                                    <span class='text-primary me-1'>Price: $product_price /-</span>    
                                </div>
                                <div class='d-flex border-top'>
-                                   <small class='w-50 text-center border-end py-2'>
-                                       <a class='text-body' href=''><i class='fa fa-eye text-primary me-2'></i>View detail</a>
-                                   </small>
-                                   <small class='w-50 text-center py-2'>
+                                   <small class='w-100 text-center py-2  border-end'>
                                        <a class='text-body' href='product.php?add_to_card=$product_id'><i class='fa fa-shopping-bag text-primary me-2'></i>Add to cart</a>
                                    </small>
                                </div>

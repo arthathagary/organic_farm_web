@@ -13,9 +13,8 @@ body{
 }
  
 .wrapper{
-	min-height: 100vh;
 	display: flex;
-	align-items: center;
+	margin-top: 80px;
 }
 
 
@@ -35,7 +34,7 @@ body{
 	font-weight: 700;
 }
 
-.form_wrap,.table-section,.category-section{
+.form_wrap,.table-section,.category-section,.blog-section{
 	margin-top: 35px;
 }
 
@@ -112,7 +111,7 @@ body{
 }
 
 
-.product-section{
+.product-section,.blog-section{
     display: flex;
 	gap: 32px;
     
@@ -131,4 +130,8 @@ body{
     gap: 36px;
     height: 100vh;
     align-items: center;
+}
+
+.blog-table{
+	margin-top: 80px;
 }

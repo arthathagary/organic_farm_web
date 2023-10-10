@@ -1,4 +1,6 @@
-
+<?php
+include ('./include/connect.php')
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +88,7 @@ while($row=mysqli_fetch_array($result_card)){
         <td ><?php echo $price_table?>/-</td>
         <td ><input type='checkbox' name="removeitem[]" value="<?php echo $product_id ?>" ></td>
         <td >
-          <input type='submit' value='Update Card' name='update_cart'>
+          <input type='submit' class="btn btn-outline-primary mb-2" value='Update Card' name='update_cart'>
           <?php 
          if(isset($_POST['update_cart'])){
           $quantities = $_POST['qty'];
@@ -95,7 +97,7 @@ while($row=mysqli_fetch_array($result_card)){
           $total_price = $total_price * $quantities;
          }
           ?>
-          <input type='submit' value='Remove Item' name='remove_button'>
+          <input type='submit' class="btn btn-outline-secondary" value='Remove Item' name='remove_button'>
         </td>
       </tr>
 
@@ -118,11 +120,11 @@ while($row=mysqli_fetch_array($result_card)){
     $result_card = mysqli_query($con, $select_card);
     $result_card_count = mysqli_num_rows($result_card);
     if($result_card_count>0){
-      echo "<h2>Subtotal:$total_price/-</h2>
-      <input type='submit' value='Continue Shopping' name='continue_shopping'>
-      <button><a href='checkout.php'>Checkout</a></button>";
+      echo "<div class='container text-center'><h2>Subtotal:$total_price/-</h2>
+      <input class='btn btn-secondary' type='submit' value='Continue Shopping' name='continue_shopping'>
+      <input class='btn btn-secondary' type='submit' value='Checkout' name='checkout'>";
     }else{
-      echo "<input type='submit' value='Continue Shopping' name='continue_shopping'>";
+      echo "<div class='container text-center'><input type='submit' value='Continue Shopping' class='btn btn-primary' name='continue_shopping'></div>";
     }
     if(isset($_POST['continue_shopping'])){
       echo "<script>window.open('product.php','_self')</script>";
@@ -150,6 +152,51 @@ while($row=mysqli_fetch_array($result_card)){
   echo @$remove_item = removeCardItem();
   ?>
 
+<?php
+if(isset($_POST['checkout'])){
+ if(!isset($_SESSION['user_name'])){
+  echo "<script>alert('Please Login First')</script>";
+  echo "<script>window.open('./user_area/user_login.php','_self')</script>";
+}else{
+  //write the card details table to product table
+  $get_ip_add = getIPAddress();
+  $select_card = "SELECT * FROM `card_details` WHERE ip_address = '$get_ip_add'";
+  $result_card = mysqli_query($con, $select_card);
+  $result_card_count = mysqli_num_rows($result_card);
+  $select_user_details = "SELECT * FROM `user_details` WHERE `user_name` = '".$_SESSION['user_name']."'";
+  $result_user_details = mysqli_query($con, $select_user_details);
+  $result_user_details_count = mysqli_num_rows($result_user_details);
+  if($result_user_details_count>0){
+    while($row_user_details=mysqli_fetch_array($result_user_details)){
+      $user_id = $row_user_details['user_id'];
+      $user_name = $row_user_details['user_name'];
+    }
+  }
+  if($result_card_count>0){
+    while($row=mysqli_fetch_array($result_card)){
+      $product_id = $row['product_id'];
+      $quantity = $row['quantity'];
+      if($quantity==0){
+        $quantity = 1;
+      }else{
+        $quantity = $quantity;
+      }
+      $invoice_number = mt_rand();
+      $status = 'ordered';
+      $insert_order = "INSERT INTO `user_orders`(`user_id`, `amount_due`,`invoice_number`,`total_products`,`order_date`,`order_status`) VALUES ($user_id ,$total_price,$invoice_number,$quantity,NOW(),'$status')";
+      $result_insert_order = mysqli_query($con, $insert_order);
+      if($result_insert_order){
+        $delete_card = "DELETE FROM `card_details` WHERE `product_id` = $product_id AND `ip_address` = '$get_ip_add'";
+        $result_delete_card = mysqli_query($con, $delete_card);
+        if($result_delete_card){
+          echo "<script>window.open('cart.php','_self')</script>";
+        }
+      }
+    }
+  }
+}
+}
+?>
 
     <!-- Footer Start -->
     <?php
@@ -161,8 +208,7 @@ while($row=mysqli_fetch_array($result_card)){
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/main.js"></script>
 </body>
