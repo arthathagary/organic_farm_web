@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-<main>
 <div class="container-fluid  fixed-top px-0">
         <nav class="navbar navbar-expand-lg  navbar-light py-lg-0 px-lg-5  " >
             <a href="" class="navbar-brand ms-4 ms-lg-0">
@@ -34,75 +33,41 @@
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.php?add_category" class="nav-item nav-link">Categories</a>
                     <a href="index.php?add_product" class="nav-item nav-link">Products</a>
-                    <a href="index.php?add_blog" class="nav-item nav-link">Blogs</a>
-                    <a href="index.php?quiz" class="nav-item nav-link">Questions</a>
-                    <a href="index.php?messages" class="nav-item nav-link">Messages</a>
+                    <a href="index.php?ask_question" class="nav-item nav-link">Questions</a>
                     <a href="index.php?orders" class="nav-item nav-link">Orders</a>
                 </div>
                
             </div>
         </nav>
     </div>
-
-   
-
-
-
     
 
 
-<div class="main-content">
-    <div>
+<div>
         <?php
+            if(isset($_GET['ask_question'])){
+                include "ask_question.php";
+            }
+
+			if(isset($_GET['add_product'])){
+                include "add_product.php";
+            }
+
             if(isset($_GET['add_category'])){
                 include "add_category.php";
             }
-        ?>
 
-    <div>
-        <?php
-            if(isset($_GET['add_product'])){
-                include "add_product.php";
-            }
-        ?>
-    </div>
-
-    <div>
-        <?php
-            if(isset($_GET['add_blog'])){
-                include "add_blog.php";
-            }
-        ?>
-    </div>
-    <div>
-        <?php
-            if(isset($_GET['quiz'])){
-                include "quiz.php";
-            }
-        ?>
-    </div>
-    <div>
-        <?php
             if(isset($_GET['orders'])){
                 include "orders.php";
             }
         ?>
     </div>
-    <div>
-        <?php
-            if(isset($_GET['messages'])){
-                include "messages.php";
-            }
-        ?>
-    </div>
-    
-    </div>
-</div>
-</main>
 
-   
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>
+
+

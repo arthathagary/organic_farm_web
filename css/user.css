@@ -13,16 +13,17 @@ body{
 }
  
 .wrapper{
+	min-height: 100vh;
 	display: flex;
-	margin-top: 80px;
+	justify-content: center;
+	align-items: center;
 }
-
-
 
 .registration_form{
 	background: #545871;
 	padding: 25px;
 	border-radius: 5px;
+	width: 400px;
 }
 
 .registration_form .title{
@@ -34,7 +35,7 @@ body{
 	font-weight: 700;
 }
 
-.form_wrap,.table-section,.category-section,.blog-section{
+.form_wrap{
 	margin-top: 35px;
 }
 
@@ -52,9 +53,12 @@ body{
 	color: #9597a6;
 }
 
+.form_wrap .input_grp{
+	display: flex;
+	justify-content: space-between;
+}
 
-
-.form_wrap   input[type="text"], .form_wrap   input[type="password"]{
+.form_wrap .input_grp  input[type="text"], .form_wrap .input_grp  input[type="password"]{
 	width: 165px;
 }
 
@@ -86,7 +90,29 @@ body{
 	margin-right: 15px;
 }
 
+.form_wrap ul .radio_wrap{
+	position: relative;
+	margin-bottom: 0;
+}
 
+.form_wrap ul .radio_wrap .input_radio{
+	position: absolute;
+	top: 0;
+	right: 0;
+	opacity: 0;
+}
+
+.form_wrap ul .radio_wrap span{
+	display: inline-block;
+	font-size: 14px;
+	padding: 3px 20px;
+	border-radius: 3px;
+	color: #545871;
+}
+
+.form_wrap .input_radio:checked ~ span{
+	background: #ebd0ce;
+}
 
 .form_wrap .submit_btn{
 	width: 100%;
@@ -108,30 +134,4 @@ body{
 	margin-top: 20px;
 	font-size: 13px;
 	color: #9597a6;
-}
-
-
-.product-section,.blog-section{
-    display: flex;
-	gap: 32px;
-    
-}
-
-.category-section{
-	display: flex;
-	flex-wrap: wrap;
-}
-
-
-
-
-.category-section{
-    justify-content: center;
-    gap: 36px;
-    height: 100vh;
-    align-items: center;
-}
-
-.blog-table{
-	margin-top: 80px;
 }

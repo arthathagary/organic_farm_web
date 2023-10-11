@@ -13,7 +13,7 @@ if(isset($_POST['add_product'])){
         echo "<script>alert('Please Fill All Fields')</script>";
         exit();
     }else{
-        move_uploaded_file($product_image_tmp, "product_images/$product_image");
+        move_uploaded_file($product_image_tmp, "../admin/product_images/$product_image");
         $insert_products = "INSERT INTO `products`(product_name, product_description, category_id, product_price, product_image,created_at,product_status) VALUES('$product_name', '$product_description', '$product_category', '$product_price', '$product_image',NOW(),'$product_status')";
         $product_result = mysqli_query($con, $insert_products);
         if($product_result){
@@ -107,7 +107,7 @@ if(isset($_POST['add_product'])){
                 echo "<td>{$product_description}</td>";
                 
                 echo "<td>{$product_price}</td>";
-                echo "<td><img src='product_images/{$product_image}' width='100px' height='100px'></td>";
+                echo "<td><img src='../admin/product_images/{$product_image}' width='100px' height='100px'></td>";
                
                
                 echo "<td><a href='update_product.php?update_product={$product_id}'>Edit</a></td>";

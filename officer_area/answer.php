@@ -1,3 +1,18 @@
+<?php
+include "../include/connect.php";
+$quiz_id = $_GET['answer'];
+if(isset($_POST['add_answer'])){
+    $answer = $_POST['answer'];
+    $update_query = "UPDATE questions SET answer = '$answer' WHERE question_id = '$quiz_id'";
+    $update_result = mysqli_query($con, $update_query);
+    if($update_result){
+        echo "<script>alert('Answer Added Successfully')</script>";
+        echo "<script>window.open('index.php?quiz','_self')</script>";
+    }else{
+        echo "<script>alert('Answer Added Failed')</script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +36,6 @@
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-<main>
 <div class="container-fluid  fixed-top px-0">
         <nav class="navbar navbar-expand-lg  navbar-light py-lg-0 px-lg-5  " >
             <a href="" class="navbar-brand ms-4 ms-lg-0">
@@ -37,72 +51,44 @@
                     <a href="index.php?add_blog" class="nav-item nav-link">Blogs</a>
                     <a href="index.php?quiz" class="nav-item nav-link">Questions</a>
                     <a href="index.php?messages" class="nav-item nav-link">Messages</a>
-                    <a href="index.php?orders" class="nav-item nav-link">Orders</a>
                 </div>
                
             </div>
         </nav>
     </div>
 
-   
 
+<main class="product-section container">
+<aside class="add-product-section">
+<form class="wrapper" action="" method="post" enctype="multipart/form-data">
+	<div class="registration_form">
+		<div class="title">
+			Update Products
+		</div>
 
+		
+			<div class="form_wrap">
+				<div class="input_wrap">
+					<label for="answer">Enter Answer</label>
+					<input type="text" id="answer" name="answer" required autocomplete="off">
+				</div>
 
-    
-
-
-<div class="main-content">
-    <div>
-        <?php
-            if(isset($_GET['add_category'])){
-                include "add_category.php";
-            }
-        ?>
-
-    <div>
-        <?php
-            if(isset($_GET['add_product'])){
-                include "add_product.php";
-            }
-        ?>
-    </div>
-
-    <div>
-        <?php
-            if(isset($_GET['add_blog'])){
-                include "add_blog.php";
-            }
-        ?>
-    </div>
-    <div>
-        <?php
-            if(isset($_GET['quiz'])){
-                include "quiz.php";
-            }
-        ?>
-    </div>
-    <div>
-        <?php
-            if(isset($_GET['orders'])){
-                include "orders.php";
-            }
-        ?>
-    </div>
-    <div>
-        <?php
-            if(isset($_GET['messages'])){
-                include "messages.php";
-            }
-        ?>
-    </div>
-    
-    </div>
+				<div class="input_wrap">
+					<input type="submit" value="Submit" class="submit_btn" name="add_answer">
+				</div>
+			</div>
+		
+	</div>
+</form>
+</aside>
 </div>
 </main>
-
-   
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 </body>
 </html>
+
+
+    

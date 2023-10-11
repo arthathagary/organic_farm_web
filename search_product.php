@@ -52,11 +52,11 @@
         <div class="container">
             <div class="row g-0 gx-5 align-items-end">
                 <div class="col-lg-6">
-                    <div class="text-start mb-5  ">
+                    <div class="section-header text-start mb-5  ">
                     <div class="title_search">
-                      
+                        <h1 class="display-5 mb-3">Our Products</h1>
                        
-   <form action="search_product.php" method="get" class="search">
+   <form action="" method="get" class="search">
       <input type="text" class="searchTerm" placeholder="Search" name="search_data">
       <input type="submit" class="searchButton" placeholder="Search" value="Search" name="search_data_product">
   
@@ -67,9 +67,6 @@
                 </div>
                 <div class="col-lg-6 text-start text-lg-end  " >
                     <ul class="nav nav-pills d-inline-flex justify-content-end mb-5">
-                    <li class='nav-item me-2'>
-                                <a class='btn btn-outline-primary border-2'  href='product.php'>All</a>
-                            </li>
                         <?php
                         getCategories();
                         ?>
@@ -80,9 +77,8 @@
                 <div>
                     <div class="row g-4">
                         <?php
-                        getProducts();
+                        searchProduct();
                         getUniqueCategory();
-                        $ip = getIPAddress();  
                         ?>
                        
                        
@@ -109,7 +105,8 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/main.js"></script>
 </body>
