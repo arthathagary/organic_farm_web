@@ -120,11 +120,11 @@ while($row=mysqli_fetch_array($result_card)){
     $result_card = mysqli_query($con, $select_card);
     $result_card_count = mysqli_num_rows($result_card);
     if($result_card_count>0){
-      echo "<div class='container text-center'><h2>Subtotal:$total_price/-</h2>
+      echo "<div class=' text-center'><h2>Subtotal:$total_price/-</h2>
       <input class='btn btn-secondary' type='submit' value='Continue Shopping' name='continue_shopping'>
       <input class='btn btn-secondary' type='submit' value='Checkout' name='checkout'>";
     }else{
-      echo "<div class='container text-center'><input type='submit' value='Continue Shopping' class='btn btn-primary' name='continue_shopping'></div>";
+      echo "<div class=' text-center'><input type='submit' value='Continue Shopping' class='btn btn-primary' name='continue_shopping'></div>";
     }
     if(isset($_POST['continue_shopping'])){
       echo "<script>window.open('product.php','_self')</script>";
@@ -189,6 +189,7 @@ if(isset($_POST['checkout'])){
         $delete_card = "DELETE FROM `card_details` WHERE `product_id` = $product_id AND `ip_address` = '$get_ip_add'";
         $result_delete_card = mysqli_query($con, $delete_card);
         if($result_delete_card){
+          echo "<script>alert('Order Placed Successfully')</script>";
           echo "<script>window.open('cart.php','_self')</script>";
         }
       }

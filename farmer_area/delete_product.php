@@ -12,7 +12,7 @@ if (isset($_GET['delete_product'])) {
         // Deletion successful
         echo "<script>alert('Product Deleted Successfully');</script>";
         // Redirect back to the product listing page or wherever you want
-        header("Location: index.php?add_product"); 
+        header("Location: index.php?add_product"); // Replace 'index.php' with the appropriate URL
         exit();
     } else {
         // Deletion failed

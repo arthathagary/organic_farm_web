@@ -112,7 +112,7 @@
                     if(isset($_POST['quiz_btn'])){
                         if(isset($_SESSION['user_type'])){
                             if($_SESSION['user_type'] == 'farmer'){
-                                echo "<script>window.open('./farmer_area/index.php','_self')</script>";
+                                echo "<script>window.open('./farmer_area/index.php?ask_question','_self')</script>";
                             }else{
                                 echo "<script>alert('Only Farmers Can Ask Question')</script>";
                                 echo "<script>window.open('./index.php','_self')</script>";

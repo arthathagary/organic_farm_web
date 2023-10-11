@@ -24,11 +24,11 @@ include ("../../../htdocs/doa/functions/common_function.php");
 			<div class="form_wrap">
 				<div class="input_wrap">
 					<label for="user_name">User Name</label>
-					<input type="text" id="user_name" name="user_name">
+					<input type="text" id="user_name" name="user_name" required autocomplete="off">
 				</div>
 				<div class="input_wrap">
 					<label for="password">Password</label>
-					<input type="password" id="password" name="password">
+					<input type="password" id="password" name="password" required autocomplete="off">
 				</div>
 				<div class="input_wrap">
 					<input type="submit" value="Login" class="submit_btn" name="user_login">

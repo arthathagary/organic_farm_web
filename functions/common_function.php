@@ -198,8 +198,8 @@ function getBlogs(){
         $blog_date = $row['blog_date'];
         $who_post = $row['who_post'];
         $blog_status = $row['blog_status'];
-       echo "<div class='col-lg-4 col-md-6 wow fadeInUp'>
-       <img class='img-fluid' src='./admin/blog_images/$blog_image' alt=''>
+       echo "<div class='col-lg-4 col-md-6  '>
+       <img class='img-fluid' src='./admin/blog_images/$blog_image' alt='blog-img'>
        <div class='bg-light p-4'>
            <a class='d-block h5 lh-base mb-4' href=''>$blog_title</a>
            <div class='text-muted border-top pt-4'>
@@ -223,8 +223,8 @@ function getLimitedBlogs(){
         $blog_date = $row['blog_date'];
         $who_post = $row['who_post'];
         $blog_status = $row['blog_status'];
-       echo "<div class='col-lg-4 col-md-6 wow fadeInUp'>
-       <img class='img-fluid' src='./admin/product_images/$blog_image' alt=''>
+       echo "<div class='col-lg-4 col-md-6  '>
+       <img class='img-fluid' src='./admin/blog_images/$blog_image' alt=''>
        <div class='bg-light p-4'>
            <a class='d-block h5 lh-base mb-4' href=''>$blog_title</a>
            <div class='text-muted border-top pt-4'>

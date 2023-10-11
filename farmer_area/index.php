@@ -1,62 +1,72 @@
-<?php
-include ("../../../htdocs/doa/include/connect.php");
-include ("../../../htdocs/doa/functions/common_function.php");
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/user.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Lora:wght@600;700&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <script src="https://kit.fontawesome.com/084cdcba7c.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+   
+    <!-- Template Stylesheet -->
+    <link rel="stylesheet" href="../css/admin.css">
+    
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-<div class="wrapper">
-	<div class="registration_form">
-		<div class="title">
-			Question Form
-		</div>
-
-		<form method="post" action="">
-			<div class="form_wrap">
-				
-				<div class="input_wrap">
-					<label for="quiz_title">Enter Question Subject</label>
-					<input type="text" id="quiz_title" name="quiz_title" required>
-				</div>
-				
-				<div class="input_wrap">
-					<label for="quiz">Enter Question</label>
-                    <textarea id="quiz" name="quiz" rows="4" cols="47" required></textarea>
-				</div>
-			
-				<div class="input_wrap">
-					<input type="submit" value="Submit" class="submit_btn" name="submit_quiz" >
-				</div>
-				
-				
-		</form>
-	</div>
-</div>
-
-<?php
-if(isset($_POST['submit_quiz'])){
-    $quiz_title = $_POST['quiz_title'];
-    $quiz = $_POST['quiz'];
-	$answer = 'Waiting for answer';
-    $insert_query = "INSERT INTO `questions`(`question_title`, `question_content`,`answer`) VALUES ('$quiz_title','$quiz','$answer')";
-    $result_insert = mysqli_query($con,$insert_query);
-    if($result_insert){
-        echo "<script>alert('Quiz Added Successfully')</script>";
-        echo "<script>window.open('../index.php','_self')</script>";
-    }else{
-        echo "<script>alert('Quiz Added Failed')</script>";
-    }
-}
-?>
+<div class="container-fluid  fixed-top px-0">
+        <nav class="navbar navbar-expand-lg  navbar-light py-lg-0 px-lg-5  " >
+            <a href="" class="navbar-brand ms-4 ms-lg-0">
+                <h1 class="fw-bold text-primary m-0">DO<span class="text-secondary">A</span></h1>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.php?add_category" class="nav-item nav-link">Categories</a>
+                    <a href="index.php?add_product" class="nav-item nav-link">Products</a>
+                    <a href="index.php?ask_question" class="nav-item nav-link">Questions</a>
+                    <a href="index.php?orders" class="nav-item nav-link">Orders</a>
+                </div>
+               
+            </div>
+        </nav>
+    </div>
     
+
+
+<div>
+        <?php
+            if(isset($_GET['ask_question'])){
+                include "ask_question.php";
+            }
+
+			if(isset($_GET['add_product'])){
+                include "add_product.php";
+            }
+
+            if(isset($_GET['add_category'])){
+                include "add_category.php";
+            }
+
+            if(isset($_GET['orders'])){
+                include "orders.php";
+            }
+        ?>
+    </div>
+
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
 

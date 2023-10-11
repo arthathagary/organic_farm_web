@@ -63,7 +63,7 @@ if(isset($_POST['add_answer'])){
 <form class="wrapper" action="" method="post" enctype="multipart/form-data">
 	<div class="registration_form">
 		<div class="title">
-			Answer Questions
+			Update Products
 		</div>
 
 		
